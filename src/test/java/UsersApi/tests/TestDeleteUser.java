@@ -30,7 +30,7 @@ public class TestDeleteUser {
     @Owner("Sana")
     @Severity(SeverityLevel.NORMAL)
     @Description("Verify that Account is being deleted successfully")
-    public void Test_DeleteUser(@NotNull ITestContext context) throws IOException {
+    public void Test_DeleteUser(@NotNull ITestContext context)  {
     //    userServiceHelper= new  UserServiceHelper();
         String emptyresponse = String.valueOf(userServiceHelper.DeleteAccount(context));
 
