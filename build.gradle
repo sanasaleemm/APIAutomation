@@ -1,0 +1,88 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "gradle.plugin.org.jetbrains.intellij.plugins:gradle-intellij-plugin:0.2.0"
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+
+        }
+
+    }
+
+    test {
+        java {
+            srcDir 'tests'
+        }
+    }
+
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+    implementation 'org.testng:testng:7.1.0'
+    implementation 'org.testng:testng:7.1.0'
+    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'org.jetbrains:annotations:23.0.0'
+    implementation 'com.yashoid:jsonparsable:1.0.4'
+
+    implementation 'io.github.privettoli:vertx-json-value-mapper:0.0.1'
+    implementation 'com.github.tsohr:json:0.0.2'
+    implementation 'org.infrastructurebuilder:ibcore-vertx-base:0.20.0'
+    implementation 'fr.myprysm.vertx:vertx-json:0.1.3'
+    implementation 'top.jfunc.common:converter:1.8.0'
+    implementation 'org.glassfish:jsonp-jaxrs-1x:1.1.6'
+    implementation 'top.jfunc.common:network-converter:1.8.1'
+    implementation 'top.jfunc.network:httpclient-converter:1.0'
+    implementation 'com.doodeec.utils:serverCommunicator:1.3.6'
+    implementation 'fr.myprysm.vertx:vertx-validation:0.1.3'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.7.0'
+    implementation('io.rest-assured:rest-assured:5.3.0')
+    testImplementation 'io.rest-assured:rest-assured:5.3.0'
+    testImplementation 'io.rest-assured:json-schema-validator:5.3.0'
+    testImplementation 'io.rest-assured:json-path:5.3.0'
+    //  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.14.2'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.14.2'
+    testImplementation 'org.testng:testng:7.1.0'
+
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
+
+
+    // https://mvnrepository.com/artifact/commons-validator/commons-validator
+    implementation group: 'commons-validator', name: 'commons-validator', version: '1.7'
+}
+
+configurations {
+    testCompile {
+        extendsFrom testImplementation
+    }
+}
+
+
+test {
+    useTestNG() {
+        //  suites 'src/test/resources/testng.xml'
+        options.suites('src/test/testng.xml')
+    }
+}

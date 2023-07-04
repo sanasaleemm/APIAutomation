@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" preserve-order="true" name="APIs Test Automation">
+    <test name= "Account APIs CUD Tests">
+        <classes>
+
+            <class name="UsersApi.tests.TestCreateUser">
+                <methods>
+                    <include name="Test_CreateValidUser"/>
+                </methods>
+            </class>
+
+            <class name="UsersApi.tests.TestUpdateUser">
+                <methods>
+                    <include name="UpdateUser"/>
+                </methods>
+            </class>
+
+            <class name="UsersApi.tests.TestDeleteUser">
+                <methods>
+                    <include name="DeleteUser"/>
+                </methods>
+            </class>
+
+            <class name="UsersApi.tests.TestInvalidUser">
+                <methods>
+                    <include name="Test_CreateInvalidUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
