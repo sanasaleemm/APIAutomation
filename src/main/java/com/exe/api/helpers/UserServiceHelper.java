@@ -202,13 +202,37 @@ public class UserServiceHelper {
                 post(EndPoints.CREATE_User).then().log().all().extract().response();
 
         String responseBody = response.getBody().asString();
-        JSONObject json = new JSONObject(responseBody);
-        // String id = json.getJSONObject("account").getString("id");
+       // JSONObject json = new JSONObject(responseBody);
 
         Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_BAD_REQUEST, "email already exists");
         String code = String.valueOf(response.getStatusCode());
 
         System.out.println("Account is not created with correct 400 response code- Bad Request:" + code);
+        return responseBody;
+    }
+
+    public String User_WithInvalid_token()
+    {
+        String tokenn = "earewrewrewrewrewr4353";
+        String email = this.generateEmail();
+        String username = this.generateUsername();
+        String password = this.generatePassword();
+
+        Account_1 account = new Account_1();
+        account.setEmail(email);
+        account.setPassword(password);
+        account.setUsername(username);
+
+        Response response = given().baseUri(baseURI).contentType(ContentType.JSON).
+                header("Authorization", "Bearer " + tokenn).when().body(account).
+                post(EndPoints.CREATE_User).then().log().all().extract().response();
+
+        String responseBody = response.getBody().asString();
+        JSONObject json = new JSONObject(responseBody);
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_UNAUTHORIZED, "email already exists");
+        String code = String.valueOf(response.getStatusCode());
+
+        System.out.println("Account is not created with correct 401 response code- UNAUTHORIZED:" + code);
         return responseBody;
     }
 

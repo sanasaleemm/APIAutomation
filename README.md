@@ -1,21 +1,59 @@
 ### Assignment
-Please create a simple test suite that verifies functionality of a public user management API available at https://m3o.com/user/api.
 
-### Some example flows that you could cover in your tests
-* Creation of a new user with mandatory/optional fields and verification that it was saved successfully
+
+### Test Cases/flows that are implemented:
+* Creation of a new user with mandatory and verification that it was saved successfully
 * Update of existing user 
 * Deletion of existing user
-* Some error scenarios, like trying to create a user with duplicated id or missing/invalid information
+* Create an user with duplicated email (400)
+* Create an user with invalid authentication token (401)
 
-### Our expectations for this task
-* Please use Java or Kotlin as programming language and Maven or Gradle as a build tool.
-* Use API testing library of your preference (for example, RestAssured, Retrofit or similar).
-* Optional: think about reporting or some other way to make test results quick to interpret and test failures easier to investigate.
-* Include description of your solution, choice of tools and instruction on how to execute the tests in the readme file.
-* Please push your code to the provided git repository and submit your assignment within 5 calendar days.
+### Technical Stack
 
-### Tips
-* Let us know if you have any questions - we're happy to help.
-* Keep it simple, no need to spend too much time on this task or implement more than 5 test cases.
-* Think about easiness of adding new test cases and making changes when building your test suite/framework.
-* If there is something you would have improved or done differently if you had more time, please feel free to mention it in the readme file.
+* Programming Language: Java
+* Build tool: Gradle
+* IDE: intelliJ IDEA
+* Simple framework: TestNG (simple reporting)
+* Testing Library: Rest-Assured
+* Proper Reporting: Allure 
+
+### Description
+
+* REST API TEST FRAMEWORK
+
+* Folder Structure:
+
+* Src---> main
+main has multiple folders:
+1. constants --> EndPoint.Java (All the endpoints are listed/added here)
+
+2. utils--> ConfigManagers.java (Using property file so I write config manager for that, config manager will have Private Constructor, Get instance, Get String , Input stream to load file)
+
+3. helpers --> UserServiceHelper, It is very important file as all the requests and common methods are in this file.
+
+4. model --> Account, Account_1, Profile **(Pojo class)**, that is used to map the keys.
+
+
+* Src---> test
+test has API test cases e.g CreateUser.java, UpdateUser.java
+
+* resource has following files:
+1. config.properties --> This file mainly contains information like baseURL, token etc.
+2. TestNG (testng.xml)
+3. Allure Report
+
+### Execution of tests
+
+There are 3 ways one can execute test cases:
+
+1. Via gradle command in the terminal (intellij IDEA)
+   * ./gradlew clean build
+   * ./gradlew clean test OR  ./gradlew test
+
+2. Via testng.xml file 
+   * either run the test cases by opening the testng.xml file and right click *Run* option (This will alos provide basic reporting & detailed results)
+
+3. Via Allure reporting **(Allure reporting has been added & configured within the project)**
+   * This can be achieved if the system/computer has installed & configured allure to run the test cases locally
+   * If allure is installed then do the following for detailed reporting results
+       * Open the IDE terminal (intelliJ) and run this command ---> **allure serve ./allure-results/**

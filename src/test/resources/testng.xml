@@ -12,19 +12,25 @@
 
             <class name="UsersApi.tests.TestUpdateUser">
                 <methods>
-                    <include name="UpdateUser"/>
+                    <include name="Test_UpdateUser"/>
                 </methods>
             </class>
 
             <class name="UsersApi.tests.TestDeleteUser">
                 <methods>
-                    <include name="DeleteUser"/>
+                    <include name="Test_DeleteUser"/>
                 </methods>
             </class>
 
             <class name="UsersApi.tests.TestInvalidUser">
                 <methods>
                     <include name="Test_CreateInvalidUser"/>
+                </methods>
+            </class>
+
+            <class name="UsersApi.tests.TestInvalidUser">
+                <methods>
+                    <include name="Test_Create_User_WithInvalid_token"/>
                 </methods>
             </class>
         </classes>

@@ -1,6 +1,10 @@
 package UsersApi.tests;
 
 import com.exe.api.helpers.UserServiceHelper;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.jetbrains.annotations.NotNull;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterTest;
@@ -19,12 +23,13 @@ public class TestCreateUser {
             throw new ExceptionInInitializerError(e);
         }
 
-
     }
 
     @Test()
 
-    //Verify that Account is being created successfully with mandatory fields
+    @Owner("Sana")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify that Account/User is being created successfully")
     public void Test_CreateValidUser( @NotNull ITestContext context) {
 
         String id = String.valueOf(userServiceHelper.createUser());
@@ -33,7 +38,5 @@ public class TestCreateUser {
         System.out.println("User is created with id:" + id);
         context.setAttribute("id", id);
     }
-
-
 
 }
