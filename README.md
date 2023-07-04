@@ -57,3 +57,5 @@ There are 3 ways one can execute test cases:
    * This can be achieved if the system/computer has installed & configured allure to run the test cases locally
    * If allure is installed then do the following for detailed reporting results
        * Open the IDE terminal (intelliJ) and run this command ---> **allure serve ./allure-results/**
+
+***PLEASE NOTE: The test cases are running smoothly by executing them using any of the above mentioned above ways. So in any case of failure please do check all the required configurations***
